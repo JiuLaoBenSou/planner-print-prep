@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {mkdir,writeFile} from 'node:fs/promises';
-const versions=[['teaching','Print-ready. Class-ready.'],['study','Your plans. Your paper.'],['home','A little space for everyday life.'],['pop','BIG PLANS. RIGHT FIT.'],['github','Resize and print your planner PDF.']] as const;
+const versions=[['teaching','Print-ready. Class-ready.'],['study','Your plans. Your paper.'],['home','A little space for everyday life.'],['pop','BIG PLANS. RIGHT FIT.'],['github','Resize planner PDFs for printing.']] as const;
 for(const [ui,title] of versions)test(`${ui}: usable desktop/mobile design with real PDF export`,async({page})=>{
   await mkdir('output/ui-variants',{recursive:true});
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
@@ -15,7 +15,7 @@ for(const [ui,title] of versions)test(`${ui}: usable desktop/mobile design with 
   const download=page.waitForEvent('download');await page.locator('#export-full').click();await(await download).saveAs(`output/ui-variants/${ui}-export.pdf`);
   expect((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations).toEqual([]);
   await page.setViewportSize({width:360,height:800});
-  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),JSON.stringify(await page.evaluate(()=>Array.from(document.querySelectorAll('body *')).filter(el=>el.getBoundingClientRect().right>innerWidth+1).map(el=>({tag:el.tagName,id:el.id,class:el.className,right:el.getBoundingClientRect().right}))))).toBe(true);
   await page.screenshot({path:`output/ui-variants/${ui}-mobile.png`,fullPage:true});
   expect((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations).toEqual([]);
   await writeFile(`output/ui-variants/${ui}-checks.json`,JSON.stringify({ui,desktop:[1440,1050],mobile:[360,800],axeViolations:0,pageErrors:errors},null,2));

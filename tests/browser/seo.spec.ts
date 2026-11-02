@@ -2,7 +2,7 @@ import {test,expect} from '@playwright/test';
 const paths=['/','/about/','/contact/','/privacy/','/how-to-use/','/guides/a5-vs-half-letter/','/guides/print-planner-inserts/','/guides/duplex-alignment/'];
 test('selected E is the default workspace without a design preview bar',async({page})=>{
   await page.goto('/');await expect(page.locator('body')).toHaveAttribute('data-ui','github');
-  await expect(page.locator('h1')).toHaveText('Resize and print your planner PDF.');
+  await expect(page.locator('h1')).toHaveText('Resize planner PDFs for printing.');
   await expect(page.locator('.design-switcher')).toHaveCount(0);
   await expect(page.getByRole('navigation',{name:'Main',exact:true})).not.toContainText('Compare designs');
   await expect(page.locator('.trust-points')).toContainText('No account or watermark');

@@ -1,7 +1,7 @@
 import {spawnSync} from 'node:child_process';
 import {readFile,writeFile,readdir,mkdir} from 'node:fs/promises';
 import {resolve} from 'node:path';
-const site=new URL(process.env.PPP_SITE_URL??'https://jiulaobensou.github.io/planner-print-prep/');
+const site=new URL(process.env.PPP_SITE_URL??'https://plannerprintprep.com/');
 if(site.protocol!=='https:'||site.search||site.hash||!site.pathname.endsWith('/'))throw new Error('PPP_SITE_URL must be an HTTPS URL ending in /, without query or fragment.');
 const dir=resolve('output/release/site');
 await import('./prepare.mjs');

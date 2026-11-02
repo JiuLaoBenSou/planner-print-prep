@@ -2,11 +2,11 @@
 
 A free browser-based tool to resize your existing planner PDF, check duplex page order, prepare a test print, and export a print-ready PDF. PDF files stay in browser memory and are not uploaded.
 
-**Website:** https://jiulaobensou.github.io/planner-print-prep/
+**Website:** https://plannerprintprep.com/
 
 One insert per output side on A4 or Letter. Includes A5, A6, Half Letter and custom trim sizes, proportional scaling, binding space, safety checks, manual front/back exports, and fixed back-side offset correction. Random feed errors and printer skew cannot be corrected with a fixed offset. Physical printing and iPad/Safari paths remain unverified.
 
-The current core is free with no account, watermark, export cooldown or checkout. Plus batch processing and named profiles are planned and are not available for purchase.
+The core is free with no account, watermark or export cooldown. Plus v1 adds sequential batches and named profiles. These additions are locally implemented; real Creem integration and production sales are not enabled in this source version. Run npm run dev:plus for the explicitly simulated local demo; it does not charge money.
 
 ## Run locally
 
@@ -33,7 +33,7 @@ Browser checks use an installed Chrome browser. Python PDF checks additionally r
 
 The main branch holds public source. The gh-pages branch holds the reviewed static build. Build with npm run build:pages, then publish output/release/site to the gh-pages branch root. PPP_SITE_URL can override the default HTTPS address when building for a different deployment.
 
-GitHub Pages hosts static assets only; there is currently no payment backend. GitHub may log visitor IP addresses for security. See the website's Privacy policy for details.
+GitHub Pages hosts static assets only. A local billing adapter is provided for development; production billing requires a separately hosted backend. GitHub may log visitor IP addresses for security. See the website's Privacy policy for details.
 
 ## Contact and dependencies
 

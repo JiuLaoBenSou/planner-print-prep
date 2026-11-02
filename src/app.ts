@@ -1,5 +1,6 @@
 import './style.css';
 import './design-preview';
+import {setupPlus} from './plus';
 import {defaults,parseSettings,exportSettings,toMm,mm,rectOnOutput,type PrintSettings,type DocumentInfo,type LayoutPlan,type PlannedPage} from './core';
 import type * as PDFJS from 'pdfjs-dist';
 import pdfWorkerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
@@ -181,6 +182,7 @@ async function renderPreview() {
 function fileUrl(bytes:Uint8Array,type='application/pdf') {const url=URL.createObjectURL(new Blob([bytes.slice().buffer],{type}));urls.add(url);return url;}
 function save(bytes:Uint8Array,name:string,type='application/pdf') {const a=document.createElement('a');a.href=fileUrl(bytes,type);a.download=name;a.click();}
 function changed() {
+  document.dispatchEvent(new Event('ppp-settings-changed'));
   const old={...settings};
   try {
     const next=readFields();
@@ -275,6 +277,7 @@ if(navigator.canShare&&navigator.share){$('share').hidden=false;$('share').addEv
 });}
 window.addEventListener('pagehide',()=>{abortTask();releaseOutput();fileBytes=null;});
 syncFields();calibrationLabel();
+setupPlus({getSettings:()=>{if(invalidSettings)throw Error('Correct the invalid workspace settings first.');return structuredClone(settings);},applySettings:next=>{settings=next;invalidSettings=false;calibration='recheck';calibrationLabel();syncFields();void rebuild();}});
 const zoom=document.createElement('button');zoom.id='enlarge';zoom.type='button';zoom.textContent='Enlarge this sheet';$('preview-live').append(zoom);
 zoom.addEventListener('click',()=>{
   const dialog=document.createElement('dialog');dialog.className='enlarged';
