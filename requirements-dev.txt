@@ -1,0 +1,2 @@
+# Independent PDF inspection and owned restricted-feature fixtures only. Not shipped in the website.
+PyMuPDF==2.0

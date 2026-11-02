@@ -1,0 +1,112 @@
+[
+  {
+    "path": "fixtures\\A-120-page.pdf",
+    "bytes": 95777,
+    "sha256": "6cbbd84a722f105c57b51db59b09e973dbbae120cb9920bf4e2655df2ec7a122"
+  },
+  {
+    "path": "fixtures\\A-seven-page.pdf",
+    "bytes": 9659,
+    "sha256": "c26ecbd6e84480552094d1a4d1c58d378846cbfa00d52e681355e99b4c8fc530"
+  },
+  {
+    "path": "fixtures\\A-ten-page.pdf",
+    "bytes": 12146,
+    "sha256": "cf1f690caaed35679155355f91bc40e83722cd6a9f21174319cba8b2cf61cad9"
+  },
+  {
+    "path": "fixtures\\B-baseline.pdf",
+    "bytes": 4306,
+    "sha256": "16149645c73f8dd0e34816905674abf58976a5f8d8a91b0d046a5e5211d1cf3e"
+  },
+  {
+    "path": "fixtures\\B-rotations-crop.pdf",
+    "bytes": 6703,
+    "sha256": "8275429f103391adbd7531fdbba4197b0398db53985bfae616b74196fa6d1ca1"
+  },
+  {
+    "path": "fixtures\\C-one-page.pdf",
+    "bytes": 4615,
+    "sha256": "0f9373b7b6b86f64dcec84775bb708642d019580e5654d444a3ee1bbf276511a"
+  },
+  {
+    "path": "fixtures\\C-original-blank.pdf",
+    "bytes": 5505,
+    "sha256": "a06c898b05d5f840a27c2784dfe27cc8ed56bb39fe786e915c940fea2ea304c4"
+  },
+  {
+    "path": "fixtures\\D-mixed.pdf",
+    "bytes": 4636,
+    "sha256": "d6bf5b37da1be16e03a492e465289ab2f1dbc1a41d1c36b280ac63a140338cc8"
+  },
+  {
+    "path": "fixtures\\D-scan.pdf",
+    "bytes": 754550,
+    "sha256": "3c9169454191bfe09b7c76b7ec3c519b3a06a3e67daec249673e1c6799100569"
+  },
+  {
+    "path": "fixtures\\E-actions.pdf",
+    "bytes": 6033,
+    "sha256": "406f4539419c8f2a10e14e1ba7bfb8099934d3d06c09fe647e688aa5e9bf4940"
+  },
+  {
+    "path": "fixtures\\E-annotation.pdf",
+    "bytes": 4664,
+    "sha256": "921b7a31c8e7e353a6cb584878d2fac4037d79a18a67e283e992749ed9e0846b"
+  },
+  {
+    "path": "fixtures\\E-broken.pdf",
+    "bytes": 20,
+    "sha256": "fd307109b0e66fedafaee02623a88914c72083facbb94ef1b55f5649ecba3b29"
+  },
+  {
+    "path": "fixtures\\E-encrypted.pdf",
+    "bytes": 6546,
+    "sha256": "3acf5138132954eadd5956c4f55612b9f00b3b449a46fd7964fd39121f4d77d9"
+  },
+  {
+    "path": "fixtures\\E-form.pdf",
+    "bytes": 4743,
+    "sha256": "817cc3b3e1cd6e6899def0c900e99186f388fd84cfa1bbdef760495eaeac6f76"
+  },
+  {
+    "path": "fixtures\\E-link.pdf",
+    "bytes": 4649,
+    "sha256": "6b015a894bb731a1bbf446a2f291c9fd0c8dbba576e714f5663e23a688b30799"
+  },
+  {
+    "path": "fixtures\\E-rotation.pdf",
+    "bytes": 5578,
+    "sha256": "4a7848f19dc5bd1fbd44dd860103ba7593118c9759f6bd67795d04043cfb86c1"
+  },
+  {
+    "path": "fixtures\\E-signature.pdf",
+    "bytes": 5717,
+    "sha256": "89698a55a2d10da8b82542b95800a9e1b8fbf4c443fbac89fd963f0cf44189e5"
+  },
+  {
+    "path": "fixtures\\E-userunit.pdf",
+    "bytes": 4625,
+    "sha256": "995465a6782053047067b044216f0bc984df4d93a3354fec6a859d7a8d03256a"
+  },
+  {
+    "path": "fixtures\\E-xfa.pdf",
+    "bytes": 5650,
+    "sha256": "8a12c5d2e722581aca129b2062fdad500118559efee9b0e0c243f8b19c0cff1e"
+  },
+  {
+    "path": "fixtures\\F-test-a4-short.pdf",
+    "bytes": 2457,
+    "sha256": "7114ef621d53835cf1a37c9b87e15066a7f54a180764427a60886b4af969d974"
+  },
+  {
+    "path": "fixtures\\F-test-letter.pdf",
+    "bytes": 2406,
+    "sha256": "d365e1c738072aa41ce8d249092d584375d6d7656f9aec155fdb9b5b3fad00be"
+  },
+  {
+    "path": "fixtures/G-review-safe-area.pdf",
+    "bytes": 944,
+    "sha256": "231cd86c86308f1879fc33323f49c7d4dcb4616a6607398aea475e02c9bcdc7a"
+  }
+]

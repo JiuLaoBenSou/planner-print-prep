@@ -1,0 +1,65 @@
+@import '@fontsource/dm-sans/latin-900.css';
+
+/* D / Paper pop: poster typography, vivid stationery colours and crisp physical controls. */
+body[data-ui=pop]{--paper:#fff;--sheet:#fff;--ink:#000;--muted:#343434;--line:#000;--panel:#00d9ff;--accent:#ccff00;font-family:Consolas,'Courier New',monospace}
+body[data-ui=pop] h1,body[data-ui=pop] h2,body[data-ui=pop] h3,body[data-ui=pop] .brand{font-family:'DM Sans',sans-serif;font-weight:900;font-style:normal;letter-spacing:-.055em}
+body[data-ui=pop] em{font-style:normal;font-weight:inherit}
+body[data-ui=pop] .site-header{padding:22px 38px;border-bottom:3px solid #000}
+body[data-ui=pop] .brand{font-size:24px;line-height:.95}
+body[data-ui=pop] .site-header nav{font-family:'DM Sans',sans-serif;font-weight:500}
+body[data-ui=pop] .hero{margin:24px auto 0;padding:44px 38px 50px;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:60px;background:#ccff00;border:3px solid #000;position:relative}
+body[data-ui=pop] .hero h1{font-size:clamp(60px,7.3vw,106px);line-height:.92;margin:20px 0 28px;letter-spacing:-.065em}
+body[data-ui=pop] .hero-copy .eyebrow{font:12px Consolas,'Courier New',monospace;letter-spacing:.1em;display:inline-block;background:#000;color:#fff;padding:8px 10px;margin:0}
+body[data-ui=pop] .intro{font:14px/1.8 Consolas,'Courier New',monospace;max-width:520px;color:#000}
+body[data-ui=pop] .hero-note{position:relative;padding:22px 28px 0;align-self:center;max-width:420px;width:100%;justify-self:center}
+body[data-ui=pop] .theme-sheet{position:relative;border:3px solid #000;padding:22px 24px;box-shadow:8px 8px 0 #000;transform:rotate(3deg)}
+body[data-ui=pop] .theme-sheet h3{font-size:38px;line-height:1;margin:22px 0 16px}
+body[data-ui=pop] .sheet-label{color:#000;font:9px Consolas,'Courier New',monospace}
+body[data-ui=pop] .sheet-tabs{border-bottom:2px solid #000;color:#000}
+body[data-ui=pop] .theme-sheet p{font:11px Consolas,'Courier New',monospace;padding:13px 0;color:#000;border-bottom:1px solid #000}
+body[data-ui=pop] .sheet-foot{color:#000;margin-top:20px}
+body[data-ui=pop] .theme-note{color:#000;margin-top:24px;font:10px Consolas,'Courier New',monospace}
+body[data-ui=pop] .pop-sticker{position:absolute;right:-8px;top:-8px;z-index:2;background:#00d9ff;border:3px solid #000;padding:10px 13px;font:900 17px/1.1 'DM Sans',sans-serif;transform:rotate(8deg);text-align:center;box-shadow:4px 4px 0 #000}
+body[data-ui=pop] .pop-spark{position:absolute;left:-28px;bottom:36px;width:76px;height:76px;fill:#ff9500;stroke:#000;stroke-width:2;z-index:2}
+body[data-ui=pop] .workflow-nav{max-width:1400px;margin:0 auto;border:3px solid #000;border-top:0;background:#000;color:#fff}
+body[data-ui=pop] .workflow-nav a{font:500 13px 'DM Sans',sans-serif;padding:22px;border-right:2px solid #fff}
+body[data-ui=pop] .workflow-nav a:last-child{border-right:0}
+body[data-ui=pop] .workflow-nav b{font:900 20px 'DM Sans',sans-serif;color:#ccff00}
+body[data-ui=pop] .workflow-nav a:hover{background:#ccff00;color:#000}
+body[data-ui=pop] .workflow-nav a:hover b{color:#000}
+body[data-ui=pop] .workspace{padding:0 38px;gap:36px;grid-template-columns:minmax(350px,5fr) minmax(0,7fr)}
+body[data-ui=pop] .file-section{margin-top:36px;padding:26px 24px;background:#ccff00;border:3px solid #000;box-shadow:6px 6px 0 #000}
+body[data-ui=pop] .file-section h2{font-size:34px;line-height:1.05}
+body[data-ui=pop] .file-section>.eyebrow{font-size:9px;letter-spacing:.08em}
+body[data-ui=pop] .file-section>p:not(.eyebrow){color:#000}
+body[data-ui=pop] .control-section{margin-top:26px;padding:24px;border:3px solid #000;background:#fff}
+body[data-ui=pop] .section-heading{gap:12px}
+body[data-ui=pop] .section-heading>span{padding:4px 7px;background:#000;color:#fff;font-size:12px}
+body[data-ui=pop] .section-heading h2{font-size:28px;line-height:1.15}
+body[data-ui=pop] label{font-size:12px;letter-spacing:0}
+body[data-ui=pop] input:not([type=checkbox]):not([type=file]),body[data-ui=pop] select,body[data-ui=pop] textarea{background:#fff;color:#000;border:2px solid #000;padding:10px 8px;font-size:12px;margin-top:6px}
+body[data-ui=pop] .field-grid{gap:14px}
+body[data-ui=pop] .field-note{font-size:11px}
+body[data-ui=pop] button,body[data-ui=pop] .button{background:#fff;color:#000;border:2px solid #000;border-radius:0;box-shadow:4px 4px 0 #000;font:900 12px/1.4 'DM Sans',sans-serif;letter-spacing:.02em;transition:transform .15s ease-out,box-shadow .15s ease-out}
+body[data-ui=pop] button.primary,body[data-ui=pop] .button.primary{background:#000;color:#fff;border-color:#000}
+body[data-ui=pop] button:not(:disabled):hover,body[data-ui=pop] .button:hover{background:#ffff00;color:#000;box-shadow:6px 6px 0 #000;transform:translate(-2px,-2px)}
+body[data-ui=pop] button:not(:disabled):active,body[data-ui=pop] .button:active{transform:translate(4px,4px);box-shadow:none;transition:none}
+body[data-ui=pop] button:disabled{box-shadow:none}
+body[data-ui=pop] .actions.subtle button{padding:0 6px;border:0;box-shadow:none;background:transparent;transform:none}
+body[data-ui=pop] .preview{margin-top:36px;padding:26px 26px 0;background:#00d9ff;border:3px solid #000;box-shadow:8px 8px 0 #000;top:100px}
+body[data-ui=pop] .preview-title{margin-top:14px;align-items:end}
+body[data-ui=pop] .preview-title h2{font-size:clamp(35px,3.6vw,52px);line-height:.95;margin:0}
+body[data-ui=pop] .preview-top>span{border:2px solid #000;background:#fff;padding:5px 8px;font-size:9px}
+body[data-ui=pop] .empty-paper{box-shadow:6px 6px 0 #000;border:2px solid #000}
+body[data-ui=pop] .empty-insert p{font-family:'DM Sans',sans-serif;font-weight:900}
+body[data-ui=pop] .paper-pair canvas{border:2px solid #000}
+body[data-ui=pop] .preview-title>p,body[data-ui=pop] .preview-bottom p,body[data-ui=pop] .legend,body[data-ui=pop] #preview-empty>p{color:#000}
+body[data-ui=pop] .closing{padding:36px 38px;margin-top:45px;background:#ff9500;border:3px solid #000}
+body[data-ui=pop] .closing h2{font-size:58px;line-height:.95}
+body[data-ui=pop] footer{padding:30px 38px;border-top:0}
+body[data-ui=pop] .design-switcher{border-bottom:3px solid #000}
+body[data-ui=pop] .design-choices [aria-pressed=true]{background:#ccff00;color:#000}
+body[data-ui=pop] .design-choices button{font-size:10px;padding:8px 10px}
+body[data-ui=pop] a:focus-visible,body[data-ui=pop] button:focus-visible,body[data-ui=pop] input:focus-visible,body[data-ui=pop] select:focus-visible{outline:3px solid #000;outline-offset:5px}
+@media(max-width:1050px){body[data-ui=pop] .hero{margin:20px 24px 0;gap:32px;padding:32px 26px}body[data-ui=pop] .hero h1{font-size:70px}body[data-ui=pop] .workflow-nav{margin:0 24px}body[data-ui=pop] .workspace{padding:0 24px;gap:26px;grid-template-columns:minmax(300px,5fr) minmax(0,6fr)}body[data-ui=pop] .control-section{padding:20px 16px}body[data-ui=pop] .file-section{padding:24px 16px}body[data-ui=pop] .preview{padding:24px 20px 0}body[data-ui=pop] .pop-spark{width:56px;height:56px;left:-8px}}
+@media(max-width:700px){body[data-ui=pop] .site-header{padding:20px}body[data-ui=pop] .hero{margin:16px 16px 0;padding:26px 20px 28px;gap:30px}body[data-ui=pop] .hero h1{font-size:clamp(42px,12vw,78px);line-height:.95;margin:20px 0}body[data-ui=pop] .hero-copy .eyebrow{font-size:10px}body[data-ui=pop] .intro{font-size:12px}body[data-ui=pop] .hero-note{padding:10px 16px 0;background:none}body[data-ui=pop] .theme-sheet{padding:20px;transform:none;box-shadow:4px 4px 0 #000}body[data-ui=pop] .theme-sheet h3{font-size:32px;margin:20px 0 16px}body[data-ui=pop] .pop-sticker{right:0;top:0;font-size:13px;padding:8px 10px}body[data-ui=pop] .pop-spark{left:-8px;bottom:35px;width:50px;height:50px}body[data-ui=pop] .workflow-nav{margin:0 16px;gap:0}body[data-ui=pop] .workflow-nav a{padding:16px 10px;font-size:11px;gap:10px}body[data-ui=pop] .workflow-nav a:nth-child(2){border-right:0}body[data-ui=pop] .workflow-nav b{font-size:17px}body[data-ui=pop] .workspace{padding:0 16px;gap:0}body[data-ui=pop] .file-section{padding:24px 18px;margin-top:24px}body[data-ui=pop] .file-section h2{font-size:29px}body[data-ui=pop] .preview{padding:22px 16px 0;box-shadow:4px 4px 0 #000;margin-top:28px}body[data-ui=pop] .preview-title h2{font-size:40px}body[data-ui=pop] .preview-title>p{margin-top:16px}body[data-ui=pop] .preview-top{gap:12px}body[data-ui=pop] .preview-top>span{font-size:8px}body[data-ui=pop] .control-section{padding:24px 16px;margin-top:24px}body[data-ui=pop] .section-heading h2{font-size:26px}body[data-ui=pop] .closing{margin:32px 16px 0;padding:28px 20px}body[data-ui=pop] .closing h2{font-size:46px}body[data-ui=pop] footer{padding:28px 20px}body[data-ui=pop] .design-choices{gap:10px}body[data-ui=pop] .design-choices button{padding:8px;min-width:0}body[data-ui=pop] .design-switcher{padding:12px 16px}}

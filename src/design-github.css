@@ -1,0 +1,188 @@
+/* E / User-supplied github-style: compact utility, neutral surfaces and semantic interaction. */
+body[data-ui=github] {
+  --paper:#ffffff; --sheet:#ffffff; --ink:#1f2328; --muted:#656d76;
+  --line:#d0d7de; --panel:#f6f8fa; --accent:#0969da;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:14px; line-height:1.5;
+}
+body[data-ui=github] :is(h1,h2,h3,.brand) {
+  font-family:inherit; font-weight:600; font-style:normal; letter-spacing:0; line-height:1.35;
+}
+body[data-ui=github] em {font-family:inherit;font-style:normal;font-weight:inherit}
+body[data-ui=github] a {color:#0969da}
+body[data-ui=github] .site-header {
+  max-width:none;padding:16px 32px;background:#f6f8fa;border-bottom:1px solid #d0d7de;gap:24px;
+}
+body[data-ui=github] .brand {font-size:18px;display:flex;gap:5px;flex-wrap:wrap;color:#1f2328}
+body[data-ui=github] .brand br {display:none}
+body[data-ui=github] .site-header nav {gap:24px;font-size:13px}
+body[data-ui=github] .edition {font:11px/1.6 ui-monospace,Consolas,monospace;letter-spacing:0}
+body[data-ui=github] .hero {max-width:1328px;display:block;padding:24px 24px 20px}
+body[data-ui=github] .hero h1 {font-size:28px;line-height:1.3;letter-spacing:0;margin:8px 0 12px}
+body[data-ui=github] .hero-copy .eyebrow {font-size:13px;letter-spacing:0;text-transform:none;color:#656d76;margin:0}
+body[data-ui=github] .intro {font-size:14px;line-height:1.6;max-width:70ch;margin:0}
+body[data-ui=github] .hero-note {display:none}
+body[data-ui=github] .workflow-nav {max-width:1280px;margin:0 auto;border-top:0;border-bottom:1px solid #d0d7de;gap:8px;grid-template-columns:repeat(4,max-content)}
+body[data-ui=github] .workflow-nav a {font-size:13px;padding:12px;gap:8px;border-radius:6px 6px 0 0;color:#1f2328}
+body[data-ui=github] .workflow-nav b {font:12px ui-monospace,Consolas,monospace;color:#656d76}
+body[data-ui=github] .workflow-nav a:hover {background:#f6f8fa;color:#0969da}
+body[data-ui=github] .workspace {max-width:1328px;padding:0 24px;gap:24px;grid-template-columns:minmax(330px,5fr) minmax(0,7fr)}
+body[data-ui=github] .file-section {margin:20px 0 0;padding:16px;border:1px solid #d0d7de;border-radius:6px;background:#fff}
+body[data-ui=github] .file-section>.eyebrow,body[data-ui=github] .closing>.eyebrow {display:none}
+body[data-ui=github] .file-section h2 {font-size:20px;line-height:1.3;margin-bottom:8px}
+body[data-ui=github] .file-section>p:not(.eyebrow) {font-size:13px;line-height:1.6}
+body[data-ui=github] .actions {gap:8px;margin:16px 0}
+body[data-ui=github] .file-meta {font:12px/1.6 ui-monospace,Consolas,monospace;border-top:1px solid #d0d7de;padding-top:12px}
+body[data-ui=github] #status {font-size:12px;margin-bottom:0;min-height:18px}
+body[data-ui=github] .control-section {margin-top:16px;padding:16px;border:1px solid #d0d7de;border-radius:6px;background:#fff;font-size:13px}
+body[data-ui=github] .section-heading {gap:8px;margin-bottom:4px;align-items:center}
+body[data-ui=github] .section-heading>span {font:12px ui-monospace,Consolas,monospace;color:#656d76}
+body[data-ui=github] .section-heading h2 {font-size:18px;line-height:1.35;margin:0}
+body[data-ui=github] label {font-size:13px;letter-spacing:0;margin-top:12px;font-weight:600}
+body[data-ui=github] label>span {font-size:12px;letter-spacing:0}
+body[data-ui=github] label.check {font-size:12px;font-weight:400;line-height:1.5}
+body[data-ui=github] .field-grid {gap:12px}
+body[data-ui=github] :is(input:not([type=checkbox]):not([type=file]),select,textarea) {
+  background:#f6f8fa;color:#24292f;border:1px solid #d0d7de;border-radius:6px;
+  margin-top:6px;padding:8px 10px;font-size:13px;min-height:38px;letter-spacing:0;
+}
+body[data-ui=github] select {padding-right:24px}
+body[data-ui=github] input[type=checkbox] {accent-color:#0969da}
+body[data-ui=github] .field-note {font-size:12px;line-height:1.6;margin:8px 0 12px;max-width:72ch}
+body[data-ui=github] :is(button,.button) {
+  font-family:inherit;font-size:13px;font-weight:500;letter-spacing:0;line-height:1.4;
+  min-height:38px;padding:8px 12px;gap:8px;border:1px solid #d0d7de;border-radius:6px;
+  background:#f6f8fa;color:#1f2328;box-shadow:0 1px 0 rgba(27,31,36,.04);
+  transition:background-color .1s,border-color .1s;
+}
+body[data-ui=github] :is(button,.button):hover {background:#eef1f4;color:#1f2328;border-color:#d0d7de;transform:none}
+body[data-ui=github] :is(button.primary,.button.primary) {background:#0969da;border-color:#0969da;color:#fff}
+body[data-ui=github] :is(button.primary,.button.primary):hover {background:#0757b5;border-color:#0757b5;color:#fff}
+body[data-ui=github] :is(button,.button):active {background:#e8e8e8;transform:none;box-shadow:none}
+body[data-ui=github] :is(button.primary,.button.primary):active {background:#0757b5;color:#fff}
+body[data-ui=github] button:disabled {opacity:1;color:#656d76;background:#f6f8fa;border-color:#d0d7de;box-shadow:none}
+body[data-ui=github] .actions.subtle {gap:12px;margin:8px 0}
+body[data-ui=github] .actions.subtle button {border:0;background:none;color:#0969da;box-shadow:none;padding:4px 0;min-height:38px;text-decoration:none}
+body[data-ui=github] .actions.subtle #clear:not(:disabled) {color:#cf222e}
+body[data-ui=github] .actions.subtle button:disabled {color:#656d76}
+body[data-ui=github] details {border-top:1px solid #d0d7de;margin-top:16px;padding-top:4px}
+body[data-ui=github] summary {font-size:13px;padding:10px 0;color:#0969da;min-height:44px}
+body[data-ui=github] #compensation,body[data-ui=github] #calibration-status {border:0;padding:0;font-size:12px;line-height:1.6}
+body[data-ui=github] .preview {margin-top:20px;padding:0 16px;background:#f6f8fa;border:1px solid #d0d7de;border-radius:6px;top:100px}
+body[data-ui=github] .preview-top {margin:0 -16px;padding:12px 16px;border-bottom:1px solid #d0d7de;border-radius:6px 6px 0 0;background:#fff;gap:12px}
+body[data-ui=github] .preview-top .eyebrow {font-size:12px;letter-spacing:0;line-height:1.5;margin:0}
+body[data-ui=github] .preview-top>span {font:11px ui-monospace,Consolas,monospace;border:1px solid #d0d7de;border-radius:6px;padding:4px 6px;color:#656d76;background:#fff}
+body[data-ui=github] .preview-title {margin:16px 0;gap:12px;align-items:center}
+body[data-ui=github] .preview-title h2 {font-size:20px;line-height:1.3;margin:0}
+body[data-ui=github] .preview-title>p {font-size:12px;margin:0;max-width:none;line-height:1.5}
+body[data-ui=github] .empty-paper {box-shadow:none;border:1px solid #d0d7de;background:#fff;width:55%;max-width:320px;margin:24px auto}
+body[data-ui=github] .empty-insert {border-color:#d0d7de}
+body[data-ui=github] .empty-insert p {font-family:inherit;font-size:18px;letter-spacing:0}
+body[data-ui=github] #preview-empty>p {font-size:12px;margin:20px 0}
+body[data-ui=github] .preview-toolbar {border-top:1px solid #d0d7de;gap:12px;padding-bottom:16px;grid-template-columns:80px 1fr}
+body[data-ui=github] .preview-toolbar :is(label,select) {font-size:12px}
+body[data-ui=github] .paper-pair {gap:12px}
+body[data-ui=github] .paper-pair figcaption {font:11px/1.5 ui-monospace,Consolas,monospace;letter-spacing:0;min-height:36px}
+body[data-ui=github] canvas {border:1px solid #d0d7de;background:#fff}
+body[data-ui=github] .legend {font-size:11px;gap:12px;letter-spacing:0;padding:8px 0}
+body[data-ui=github] .preview-bottom {border-top:1px solid #d0d7de;padding:12px 0;gap:12px}
+body[data-ui=github] .preview-bottom>span {font:11px/1.5 ui-monospace,Consolas,monospace;letter-spacing:0}
+body[data-ui=github] .preview-bottom p {font-size:12px;line-height:1.5}
+body[data-ui=github] #enlarge {margin-bottom:16px;min-height:38px}
+body[data-ui=github] #issues:not(:empty) {border:1px solid #d0d7de;border-radius:6px;padding:12px;margin-bottom:16px;background:#fff}
+body[data-ui=github] .closing {max-width:1280px;margin:24px auto 0;padding:20px 0;border-top:1px solid #d0d7de;display:block}
+body[data-ui=github] .closing h2 {font-size:20px;margin-bottom:8px}
+body[data-ui=github] .closing>div {max-width:72ch;font-size:13px}
+body[data-ui=github] .closing a {font-size:13px}
+body[data-ui=github] footer {max-width:1280px;border-top:1px solid #d0d7de;padding:20px 0;margin:0 auto}
+body[data-ui=github] footer .brand {font-size:16px}
+body[data-ui=github] footer nav {font-size:12px;gap:16px}
+body[data-ui=github] footer p {font-size:12px}
+body[data-ui=github] .design-switcher {background:#fff;padding:8px 24px;border-bottom:1px solid #d0d7de;gap:12px}
+body[data-ui=github] .design-switcher>span {font-size:12px;letter-spacing:0}
+body[data-ui=github] .design-switcher>a {font-size:12px}
+body[data-ui=github] .design-choices {gap:6px}
+body[data-ui=github] .design-choices button {font-size:12px;padding:7px 10px;min-height:38px;box-shadow:none}
+body[data-ui=github] .design-choices [aria-pressed=true] {color:#0969da;background:#f6f8fa;border-color:#0969da}
+body[data-ui=github] :is(button,a,input,select,summary,textarea):focus-visible,
+body[data-ui=github] .button:focus-within {
+  outline:2px solid #0969da;outline-offset:2px;box-shadow:0 0 0 4px rgba(9,105,218,.3);
+}
+body[data-ui=github] :is(input,select,textarea):focus {background:#fff;border-color:#0969da}
+body[data-ui=github] dialog.enlarged {font-family:inherit;border:1px solid #d0d7de;border-radius:6px;background:#fff;padding:16px}
+body[data-ui=github] dialog.enlarged h2 {font-size:20px}
+.product-content {max-width:1280px;margin:28px auto 0;padding:0 24px}
+.landing-section {padding:20px 0;border-top:1px solid var(--line)}
+.trust-points {list-style:none;display:flex;flex-wrap:wrap;gap:8px 20px;padding:0;margin:14px 0 0;font-size:12px;color:var(--muted)}
+.benefit-list {display:grid;grid-template-columns:1fr 1fr;gap:16px 28px;margin:16px 0}
+.benefit-list dt {font-weight:600;margin-bottom:6px}
+.benefit-list dd {margin:0;max-width:65ch}
+.guide-links {list-style:none;padding:0;margin:12px 0}
+.guide-links li {padding:10px 0}
+.guide-links p {margin:6px 0 0}
+body[data-ui=github] .landing-section h2 {font-size:20px;margin:0 0 12px}
+body[data-ui=github] :is(.benefit-list,.guide-links,.faq p) {font-size:14px;line-height:1.6}
+body[data-ui=github] .benefit-list dd,body[data-ui=github] .guide-links p {color:#656d76}
+body[data-ui=github] .faq details {margin-top:8px;padding-top:4px}
+body[data-ui=github] .faq summary {font-size:14px;font-weight:600;min-height:44px}
+body[data-ui=github] .faq p {max-width:72ch;margin:4px 0 16px}
+body[data-ui=github] .article {max-width:850px;margin:28px auto 40px;padding:0 24px}
+body[data-ui=github] .article>.eyebrow {display:none}
+body[data-ui=github] .article h1 {font-size:28px;line-height:1.3;margin:12px 0 20px}
+body[data-ui=github] .article h2 {font-size:21px;margin:28px 0 12px}
+body[data-ui=github] .article h3 {font-size:18px;margin:20px 0 8px}
+body[data-ui=github] .article :is(p,li) {font-size:14px;line-height:1.75;max-width:72ch}
+body[data-ui=github] .article .lede {font-size:16px;color:#656d76}
+body[data-ui=github] .article :is(td,th) {font-size:13px;border-color:#d0d7de}
+body[data-ui=github] .article th {background:#f6f8fa}
+body[data-ui=github] .article svg {border:1px solid #d0d7de;border-radius:6px}
+@media(max-width:1328px) {
+  body[data-ui=github] :is(.workflow-nav,.closing,footer) {margin-left:24px;margin-right:24px}
+}
+@media(max-width:1050px) {
+  body[data-ui=github] .site-header {padding:12px 24px}
+  body[data-ui=github] .workspace {padding:0 24px;gap:16px;grid-template-columns:minmax(300px,5fr) minmax(0,6fr)}
+  body[data-ui=github] .hero {padding:20px 24px;display:block}
+  body[data-ui=github] .hero h1 {font-size:28px}
+  body[data-ui=github] .preview-title {display:block}
+  body[data-ui=github] .preview-title>p {margin-top:8px}
+  body[data-ui=github] .paper-pair {flex-direction:row}
+  body[data-ui=github] .preview-bottom {display:block}
+  body[data-ui=github] .preview-bottom p {margin-top:8px}
+}
+@media(max-width:700px) {
+  body[data-ui=github] .site-header {padding:12px 16px;display:block}
+  body[data-ui=github] .site-header .brand {font-size:18px}
+  body[data-ui=github] .site-header nav {max-width:none;justify-content:flex-start;gap:16px;margin-top:8px}
+  body[data-ui=github] .site-header nav a {font-size:12px}
+  body[data-ui=github] .hero {padding:20px 16px;gap:0}
+  body[data-ui=github] .hero h1 {font-size:26px;line-height:1.3;margin:8px 0}
+  body[data-ui=github] .hero-copy .eyebrow {font-size:12px;letter-spacing:0}
+  body[data-ui=github] .intro {font-size:13px}
+  body[data-ui=github] .hero-note {display:none}
+  body[data-ui=github] .workflow-nav {margin:0 16px;grid-template-columns:1fr 1fr;gap:0}
+  body[data-ui=github] .workflow-nav a {font-size:12px;padding:12px 8px;gap:8px}
+  body[data-ui=github] .workspace {padding:0 16px;gap:0}
+  body[data-ui=github] .file-section {padding:16px;margin-top:16px}
+  body[data-ui=github] .file-section h2 {font-size:20px}
+  body[data-ui=github] .preview {margin-top:16px;padding:0 12px}
+  body[data-ui=github] .preview-top {margin:0 -12px;padding:12px;gap:8px}
+  body[data-ui=github] .preview-top .eyebrow {font-size:11px}
+  body[data-ui=github] .preview-top>span {font-size:10px}
+  body[data-ui=github] .preview-title h2 {font-size:20px}
+  body[data-ui=github] .preview-title>p {font-size:12px}
+  body[data-ui=github] .preview-toolbar {grid-template-columns:60px 1fr}
+  body[data-ui=github] .preview-toolbar select {font-size:11px}
+  body[data-ui=github] .paper-pair figcaption {font-size:10px}
+  body[data-ui=github] .section-heading h2 {font-size:18px}
+  body[data-ui=github] .closing {margin:20px 16px 0;padding:16px 0;border-radius:0}
+  body[data-ui=github] .closing h2 {font-size:20px;margin-bottom:8px}
+  body[data-ui=github] footer {padding:16px 0;margin:0 16px;align-items:start}
+  body[data-ui=github] .design-switcher {padding:8px 16px}
+  body[data-ui=github] .design-choices {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .product-content {padding:0 16px;margin-top:20px}
+  .benefit-list {grid-template-columns:1fr;gap:16px}
+  body[data-ui=github] .article {padding:0 16px;margin-top:20px}
+  body[data-ui=github] .article h1 {font-size:26px}
+  body[data-ui=github] .article :is(td,th) {font-size:12px;padding:10px 4px}
+}
