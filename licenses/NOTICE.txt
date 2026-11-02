@@ -1,0 +1,10 @@
+Planner Print Prep 0.1.0
+Runtime dependencies:
+{
+  "pdf-lib": "1.17.1",
+  "pdfjs-dist": "6.4.299"
+}
+
+PDF.js: Mozilla Foundation, Apache-2.0. pdf-lib: Andrew Dillon, MIT.
+DM Sans and Libre Baskerville: SIL Open Font License; full license texts accompany this notice.
+PDF.js bundled standard font and CMap licensing files are retained in the copied resource directories.
