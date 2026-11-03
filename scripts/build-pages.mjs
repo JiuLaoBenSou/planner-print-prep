@@ -1,6 +1,7 @@
 import {spawnSync} from 'node:child_process';
 import {readFile,writeFile,readdir,mkdir} from 'node:fs/promises';
 import {resolve} from 'node:path';
+import {renderSeoMetadata} from './seo-metadata.mjs';
 const site=new URL(process.env.PPP_SITE_URL??'https://plannerprintprep.com/');
 if(site.protocol!=='https:'||site.search||site.hash||!site.pathname.endsWith('/'))throw new Error('PPP_SITE_URL must be an HTTPS URL ending in /, without query or fragment.');
 const billing=process.argv.includes('--billing');
@@ -21,10 +22,15 @@ async function visit(folder){for(const file of await readdir(folder,{withFileTyp
  const route=path.slice(dir.length+1).replaceAll('\\','/').replace(/index\.html$/,'');
  const canonical=new URL(route,site).href;
  html=html.replace(/\b(href|src)="(\/(?!\/)[^"]*)"/g,(match,attr,value)=>`${attr}="${value.startsWith(site.pathname)?value:site.pathname+value.slice(1)}"`);
- html=html.replace('</head>',`<link rel="canonical" href="${canonical}"><meta property="og:url" content="${canonical}"></head>`);
+ const decode=value=>value.replace(/&(amp|quot|lt|gt|#39);/g,(_,key)=>({amp:'&',quot:'"',lt:'<',gt:'>', '#39':"'"})[key]);
+ const title=decode(/<title>(.*?)<\/title>/.exec(html)?.[1]??'');
+ const description=decode(/<meta name="description" content="([^"]*)"/.exec(html)?.[1]??'');
+ const breadcrumb=decode(/data-breadcrumb-label="([^"]*)"/.exec(html)?.[1]??'')||undefined;
+ const indexable=!/name="robots" content="[^"]*noindex/.test(html);
+ html=html.replace('</head>',renderSeoMetadata({site:site.href,canonical,title,description,breadcrumb,indexable})+'</head>');
  html=html.replace("connect-src 'self' ws://127.0.0.1:4176","connect-src 'self'");
  await writeFile(path,html);
- if(!/name="robots" content="[^"]*noindex/.test(html))routes.push(canonical);
+ if(indexable)routes.push(canonical);
 }}
 await visit(dir);
 await writeFile(resolve(dir,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+routes.sort().map(url=>`\n<url><loc>${url}</loc></url>`).join('')+'\n</urlset>\n');

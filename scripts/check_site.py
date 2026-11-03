@@ -33,7 +33,7 @@ for p in root.rglob('*.html'):
 links=fragments=0;titles=set();descriptions=set();search_pages=[]
 for p,info in parsed.items():
     assert info.title and info.description and info.h1==1,p
-    assert not info.canonical,'No production URL exists; do not fabricate canonical'
+    assert not info.canonical,'Local dist omits canonical; verify production metadata in the release build'
     if not info.noindex:
         assert info.title not in titles and info.description not in descriptions,('duplicate metadata',p)
         assert info.og_title==info.title,('Open Graph title mismatch',p)
@@ -48,7 +48,7 @@ for p,info in parsed.items():
             assert target in parsed and unquote(parts.fragment) in parsed[target].ids,('missing fragment',p,url)
             fragments+=1
         links+=1
-report={'html_pages':len(parsed),'internal_asset_and_page_links':links,'checked_fragments':fragments,'missing_targets':0,'placeholder_canonical':0,'unique_search_pages':len(search_pages),'production_metadata':'pending actual deployment URL'}
+report={'html_pages':len(parsed),'internal_asset_and_page_links':links,'checked_fragments':fragments,'missing_targets':0,'placeholder_canonical':0,'unique_search_pages':len(search_pages),'production_metadata':'Local dist; canonical and structured data are checked in the release artifact'}
 out=root.parent/'output'/'verification'
 (out/'site-checks.json').write_text(json.dumps(report,indent=2),encoding='utf8')
 (out/'seo-pages.json').write_text(json.dumps(search_pages,indent=2),encoding='utf8')

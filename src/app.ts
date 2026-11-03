@@ -57,7 +57,7 @@ function setInfo(next:DocumentInfo) {
 }
 function issueText(errors:string[],warnings:string[]=[]) {
   const box=$('issues');box.replaceChildren();
-  for(const text of [...errors,...warnings]){const p=document.createElement('p');p.textContent=text;box.append(p);}
+  for(const item of [...errors.map(text=>({text,severity:'error'})),...warnings.map(text=>({text,severity:'warning'}))]){const p=document.createElement('p');p.textContent=item.text;p.dataset.severity=item.severity;box.append(p);}
 }
 function syncFields() {
   for(const [name,value] of Object.entries(settings)) {
@@ -84,6 +84,7 @@ function readFields():PrintSettings {
   return parseSettings(JSON.stringify(next));
 }
 function calibrationLabel() {
+  for(const id of ['calibration-status','preview-badge'])$(id).dataset.testState=calibration;
   $('calibration-status').textContent=calibration==='reported'?'User-reported test check for these settings. The app cannot verify physical printing.':calibration==='recheck'?'Recheck your test print: print settings changed.':'Not test-printed.';
   $('preview-badge').textContent=calibration==='reported'?'USER-REPORTED TEST':calibration==='recheck'?'RECHECK TEST PRINT':'NOT TEST-PRINTED';
 }

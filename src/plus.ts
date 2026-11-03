@@ -4,8 +4,8 @@ import {parseProfiles,saveProfile,runBatch,validateQueue,type Profile,type Batch
 import type {PrintSettings} from './core';
 export function setupPlus(bridge:{getSettings:()=>PrintSettings;applySettings:(settings:PrintSettings)=>void}){
  const section=document.querySelector<HTMLElement>('#plus')!;
- section.innerHTML=`<details><summary id="plus-open">Plus · batch PDFs &amp; saved print profiles <span>US$9 once</span></summary>
- <div class="plus-body"><p>Prepare up to 10 PDFs in one queue, reuse saved print settings, and download one ZIP with a report for each file. US$9 once, plus applicable taxes. No subscription. Individual PDFs stay free. Files stay on your device.</p><p>Request a full refund within 7 days of payment, for any reason. <a href="${import.meta.env.BASE_URL}refunds/">Refund policy</a>.</p>
+ section.innerHTML=`<details><summary id="plus-open"><span class="plus-heading"><span class="plus-name">Planner Print Prep Plus</span><span class="plus-description">Batch PDFs &amp; saved print profiles</span></span><span class="plus-summary-meta"><span class="plus-price">US$9 <small>once</small></span><svg class="plus-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+ <div class="plus-body"><p>Prepare up to <strong>10 PDFs</strong> in one queue, reuse saved print settings, and download <strong>one ZIP</strong> with a report for each file. US$9 once, plus applicable taxes. No subscription. Individual PDFs stay free. Files stay on your device.</p><p>Request a <strong>full refund within 7 days</strong> of payment, for any reason. <a href="${import.meta.env.BASE_URL}refunds/">Refund policy</a>.</p>
  <div class="plus-license"></div>
  <div class="plus-grid"><div><h2>Named print profiles</h2><p>Save up to 20 print setups, such as A5 on Letter or a manual-duplex path. Profiles contain settings only. Recheck a test print when you switch setups.</p>
  <label>Profile name<input id="profile-name" maxlength="48" placeholder="e.g. A5 on Letter · long edge"></label>

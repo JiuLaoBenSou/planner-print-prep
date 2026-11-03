@@ -69,6 +69,25 @@ body[data-ui=github] details {border-top:1px solid #d0d7de;margin-top:16px;paddi
 body[data-ui=github] summary {font-size:13px;padding:10px 0;color:#0969da;min-height:44px}
 body[data-ui=github] #compensation,body[data-ui=github] #calibration-status {border:0;padding:0;font-size:12px;line-height:1.6}
 body[data-ui=github] .preview {margin-top:20px;padding:0 16px;background:#f6f8fa;border:1px solid #d0d7de;border-radius:6px;top:100px}
+@media(min-width:701px) {
+  body[data-ui=github] .workspace > .preview {
+    position:sticky;
+    align-self:start;
+    top:24px;
+    max-height:calc(100dvh - 40px);
+    overflow-x:hidden;
+    overflow-y:auto;
+    scrollbar-gutter:stable;
+  }
+  body[data-ui=github] .workspace > .preview:focus-visible {
+    outline:2px solid #0969da;
+    outline-offset:2px;
+  }
+  body[data-ui=github]:has(.design-switcher) .workspace > .preview {
+    top:96px;
+    max-height:calc(100dvh - 112px);
+  }
+}
 body[data-ui=github] .preview-top {margin:0 -16px;padding:12px 16px;border-bottom:1px solid #d0d7de;border-radius:6px 6px 0 0;background:#fff;gap:12px}
 body[data-ui=github] .preview-top .eyebrow {font-size:12px;letter-spacing:0;line-height:1.5;margin:0}
 body[data-ui=github] .preview-top>span {font:11px ui-monospace,Consolas,monospace;border:1px solid #d0d7de;border-radius:6px;padding:4px 6px;color:#656d76;background:#fff}
@@ -112,6 +131,55 @@ body[data-ui=github] :is(input,select,textarea):focus {background:#fff;border-co
 body[data-ui=github] dialog.enlarged {font-family:inherit;border:1px solid #d0d7de;border-radius:6px;background:#fff;padding:16px}
 body[data-ui=github] dialog.enlarged h2 {font-size:20px}
 .product-content {max-width:1280px;margin:28px auto 0;padding:0 24px}
+body[data-ui=github] .product-content {max-width:1328px}
+/* Meaningful accents for home printing: actions/sizes, free/local processing,
+   test-print cautions and the optional one-time upgrade. */
+body[data-ui=github] .headline-key {
+  color:#0969da;background:#ddf4ff;border-radius:4px;
+  padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+body[data-ui=github] .text-accent {color:#0969da}
+body[data-ui=github] .intro strong {font-weight:600;color:#1f2328}
+body[data-ui=github] .trust-points {font-size:13px;gap:8px 16px;margin-top:16px;align-items:center}
+body[data-ui=github] .trust-points li:first-child {color:#116329;background:#dafbe1;padding:4px 8px;border-radius:4px;font-weight:600}
+body[data-ui=github] .trust-points li:last-child {color:#116329;font-weight:500}
+body[data-ui=github] .section-heading > span {
+  display:grid;place-items:center;min-width:28px;min-height:28px;
+  padding:4px 6px;border-radius:4px;background:#ddf4ff;color:#0550ae;
+  font-size:12px;line-height:20px;letter-spacing:0;
+}
+body[data-ui=github] :is(#trim,#paper,#scale) {color:#0550ae;font-weight:600}
+body[data-ui=github] #file::file-selector-button {
+  background:#0969da;color:#fff;border:0;border-radius:4px;
+  padding:8px 12px;margin-right:12px;font:inherit;font-weight:500;cursor:pointer;
+}
+body[data-ui=github] #preview-badge[data-test-state=none],
+body[data-ui=github] #preview-badge[data-test-state=recheck] {
+  background:#fff8c5;color:#633c01;border-color:#bf8700;
+}
+body[data-ui=github] #preview-badge[data-test-state=reported] {
+  background:#dafbe1;color:#116329;border-color:#82b992;
+}
+body[data-ui=github] #calibration-status[data-test-state] {
+  padding:12px;border-left:3px solid #bf8700;border-radius:4px;
+  background:#fff8c5;color:#633c01;font-size:13px;line-height:1.6;
+}
+body[data-ui=github] #calibration-status[data-test-state=reported] {
+  border-left-color:#1a7f37;background:#dafbe1;color:#116329;
+}
+body[data-ui=github] #issues p[data-severity] {margin:0;padding:8px 12px;border-left:3px solid #bf8700;background:#fff8c5;color:#633c01}
+body[data-ui=github] #issues p[data-severity]+p {margin-top:8px}
+body[data-ui=github] #issues p[data-severity=error] {border-left-color:#cf222e;background:#fff1f2;color:#a40e26}
+body[data-ui=github] #plus .plus-name {color:#0969da}
+body[data-ui=github] #plus .plus-price,body[data-ui=github] .price-emphasis {color:#9a3412}
+body[data-ui=github] #plus .plus-body > p strong {font-weight:600;color:#0550ae}
+body[data-ui=github] .article :is(p,li) strong {font-weight:600;color:#0550ae}
+body[data-ui=github] .article th {background:#f6f8fa;color:#0550ae}
+body[data-ui=github] .breadcrumbs {
+  display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;
+  margin:0 0 16px;font-size:12px;line-height:1.6;color:#656d76;
+}
+body[data-ui=github] .breadcrumbs a {font-weight:500}
 .landing-section {padding:20px 0;border-top:1px solid var(--line)}
 .trust-points {list-style:none;display:flex;flex-wrap:wrap;gap:8px 20px;padding:0;margin:14px 0 0;font-size:12px;color:var(--muted)}
 .benefit-list {display:grid;grid-template-columns:1fr 1fr;gap:16px 28px;margin:16px 0}
