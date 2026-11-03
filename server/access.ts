@@ -1,4 +1,4 @@
-import type {DatabaseSync} from 'node:sqlite';
+import type {SyncDatabase} from './sql-store';
 import {createCipheriv,createDecipheriv,createHash,createHmac,randomBytes,timingSafeEqual} from 'node:crypto';
 export class AccessError extends Error{constructor(readonly status:number,message:string){super(message);}}
 const fail=(status:number,message:string):never=>{throw new AccessError(status,message);};
@@ -8,7 +8,7 @@ const token=(v:unknown)=>{if(typeof v!=='string'||!/^[a-f0-9]{64}$/.test(v))retu
 const email=(v:unknown)=>{if(typeof v!=='string'||v.length>254||!/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(v.trim()))return fail(400,'Enter your purchase email address.');return v.trim().toLowerCase();};
 export type AccessConfig={mode:string;origin:string;accessSecret?:string;sendRestoreMail?:(message:{to:string;url:string})=>Promise<void>;now?:()=>number};
 type Row=Record<string,any>;
-export function createAccess(config:AccessConfig,db:DatabaseSync,paid:(key:string)=>boolean,grant:(key:string,order:string)=>void,api:(path:string,body?:unknown)=>Promise<Row|undefined>){
+export function createAccess(config:AccessConfig,db:SyncDatabase,paid:(key:string)=>boolean,grant:(key:string,order:string)=>void,api:(path:string,body?:unknown)=>Promise<Row|undefined>){
  const mock=config.mode==='mock',secret=mock?randomBytes(32):/^[a-f0-9]{64}$/i.test(config.accessSecret??'')?Buffer.from(config.accessSecret!,'hex'):null;
  const enabled=!!secret&&(mock||!!config.sendRestoreMail),mode=config.mode,now=config.now??Date.now;
  const hashEmail=(value:string)=>createHmac('sha256',secret!).update(mode+'\0'+value).digest('hex');

@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "types": [
+      "node",
+      "@cloudflare/workers-types"
+    ],
+    "allowImportingTsExtensions": true
+  },
+  "include": [
+    "worker.ts",
+    "cloudflare.config.ts",
+    "vite.config.ts",
+    ".cloudflare/types/index.d.ts",
+    "../server/access.ts",
+    "../server/billing-core.ts",
+    "../server/sql-store.ts",
+    "../server/mail.ts"
+  ]
+}

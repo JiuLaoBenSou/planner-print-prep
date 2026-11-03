@@ -5,7 +5,7 @@ import type {PrintSettings} from './core';
 export function setupPlus(bridge:{getSettings:()=>PrintSettings;applySettings:(settings:PrintSettings)=>void}){
  const section=document.querySelector<HTMLElement>('#plus')!;
  section.innerHTML=`<details><summary id="plus-open">Plus · batch PDFs &amp; saved print profiles <span>US$9 once</span></summary>
- <div class="plus-body"><p>Prepare up to 10 PDFs in one queue, reuse saved print settings, and download one ZIP with a report for each file. Individual PDFs stay free. Files stay on your device.</p>
+ <div class="plus-body"><p>Prepare up to 10 PDFs in one queue, reuse saved print settings, and download one ZIP with a report for each file. US$9 once, plus applicable taxes. No subscription. Individual PDFs stay free. Files stay on your device.</p><p>Request a full refund within 7 days of payment, for any reason. <a href="${import.meta.env.BASE_URL}refunds/">Refund policy</a>.</p>
  <div class="plus-license"></div>
  <div class="plus-grid"><div><h2>Named print profiles</h2><p>Save up to 20 print setups, such as A5 on Letter or a manual-duplex path. Profiles contain settings only. Recheck a test print when you switch setups.</p>
  <label>Profile name<input id="profile-name" maxlength="48" placeholder="e.g. A5 on Letter · long edge"></label>

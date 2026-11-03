@@ -3,6 +3,12 @@ import {readFile,writeFile,readdir,mkdir} from 'node:fs/promises';
 import {resolve} from 'node:path';
 const site=new URL(process.env.PPP_SITE_URL??'https://plannerprintprep.com/');
 if(site.protocol!=='https:'||site.search||site.hash||!site.pathname.endsWith('/'))throw new Error('PPP_SITE_URL must be an HTTPS URL ending in /, without query or fragment.');
+const billing=process.argv.includes('--billing');
+const productionApi='https://planner-print-prep-payments.video-to-gif-local.workers.dev/api/billing/';
+if(billing){
+ if(site.href!=='https://plannerprintprep.com/'||process.env.VITE_BILLING_API_URL&&process.env.VITE_BILLING_API_URL!==productionApi)throw Error('Production billing build requires the production site and billing API.');
+ process.env.VITE_BILLING_API_URL=productionApi;
+}
 const dir=resolve('output/release/site');
 await import('./prepare.mjs');
 for(const args of [['node_modules/typescript/bin/tsc','--noEmit'],['node_modules/vite/bin/vite.js','build','--base',site.pathname,'--outDir',dir]]){
@@ -25,5 +31,5 @@ await writeFile(resolve(dir,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"
 await writeFile(resolve(dir,'robots.txt'),`User-agent: *\nAllow: /\n\nSitemap: ${new URL('sitemap.xml',site).href}\n`);
 await writeFile(resolve(dir,'.nojekyll'),'');
 await mkdir('output/release',{recursive:true});
-await writeFile('output/release/build.json',JSON.stringify({site:site.href,base:site.pathname,indexablePages:routes.length,output:dir},null,2));
+await writeFile('output/release/build.json',JSON.stringify({site:site.href,base:site.pathname,indexablePages:routes.length,output:dir,billingApi:process.env.VITE_BILLING_API_URL??null,billingRelease:billing},null,2));
 console.log(`Pages build: ${site.href} (${routes.length} indexable pages)`);

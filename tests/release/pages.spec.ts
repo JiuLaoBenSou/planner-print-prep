@@ -32,7 +32,7 @@ test('public pages, privacy, metadata, sitemap and mobile workspace agree',async
   }
   await page.goto(site+'privacy/');await expect(page.locator('main')).toContainText('GitHub Pages');
   await expect(page.locator('main')).not.toContainText('no public hosting provider');
-  await page.goto(site+'about/');await expect(page.locator('main')).toContainText('not available to purchase');
+  await page.goto(site+'about/');await expect(page.locator('main')).toContainText('Check the Plus panel for checkout availability');
   const sitemap=await request.get(site+'sitemap.xml');expect(sitemap.status()).toBe(200);expect(await sitemap.text()).toContain(canonical+'privacy/');
   const robots=await request.get(site+'robots.txt');expect(robots.status()).toBe(200);expect(await robots.text()).toContain('Sitemap: '+canonical+'sitemap.xml');
   await page.setViewportSize({width:360,height:800});await page.goto(site);

@@ -1,4 +1,14 @@
 import {test,expect} from '@playwright/test';
+
+test('closed production checkout still offers restoration and explains availability',async({page})=>{
+ await page.route('**/api/billing/config',route=>route.fulfill({json:{mode:'prod',canPurchase:false,accessEnabled:true}}));
+ await page.goto('/#plus');
+ await expect(page.locator('#plus-status')).toContainText('Purchases are not open yet');
+ await expect(page.locator('#plus-buy')).toBeDisabled();
+ await expect(page.locator('#access-request')).toBeEnabled();
+ await expect(page.locator('#plus-demo')).toBeHidden();
+ await expect(page.locator('#batch-input')).toBeDisabled();
+});
 test('purchase access persists without a license key and email links restore another browser',async({page,browser})=>{
  await page.goto('/#plus');await expect(page.locator('#access-email')).toBeVisible();await expect(page.locator('#plus-key')).toHaveCount(0);
  await page.locator('#plus-demo').click();await expect(page.locator('#plus-status')).toContainText('Local simulation active');
