@@ -10,7 +10,7 @@ const directions:Record<Direction,{name:string;eyebrow:string;title:string;intro
   home:{name:'C · Everyday paper',eyebrow:'A LITTLE PREPARATION. A LIGHTER WEEK.',title:'A little space<br> for everyday life.',intro:'Turn your existing planner PDF into pages for the week ahead. We’ll help you get the size and sides right, one step at a time.',edition:'EVERYDAY PAPER<br>MADE FOR YOUR OWN RHYTHM',sheetTitle:'Room for the everyday',sheetLines:['The week ahead','Little things to remember','A moment for yourself'],fileTitle:'Let’s begin with your PDF.',previewTitle:'Make a little room<br> for what matters.',closingTitle:'Take it one<br> sheet at a time.'},
   github:{name:'E · GitHub style',eyebrow:'Planner Print Prep',title:'Resize planner PDFs for printing.',intro:'Use the planner PDF you already have. Choose A5, A6, Half Letter or a custom insert size, check both sides, then print on A4 or Letter paper.',edition:'FILES STAY ON YOUR DEVICE<br>FREE CORE · OPTIONAL PLUS',sheetTitle:'',sheetLines:[],fileTitle:'Source document',previewTitle:'Output preview',closingTitle:'Before you print'},
 };
-const nodes={eyebrow:document.querySelector<HTMLElement>('.hero-copy .eyebrow')!,title:document.querySelector<HTMLElement>('h1')!,intro:document.querySelector<HTMLElement>('.intro')!,edition:document.querySelector<HTMLElement>('.edition')!,note:document.querySelector<HTMLElement>('.hero-note')!,fileTitle:document.querySelector<HTMLElement>('.file-section h2')!,previewTitle:document.querySelector<HTMLElement>('.preview-title h2')!,closingTitle:document.querySelector<HTMLElement>('.closing h2')!};
+const nodes={eyebrow:document.querySelector<HTMLElement>('.hero-copy .eyebrow')!,title:document.querySelector<HTMLElement>('h1')!,intro:document.querySelector<HTMLElement>('.intro')!,note:document.querySelector<HTMLElement>('.hero-note')!,fileTitle:document.querySelector<HTMLElement>('.file-section h2')!,previewTitle:document.querySelector<HTMLElement>('.preview-title h2')!,closingTitle:document.querySelector<HTMLElement>('.closing h2')!};
 const original=Object.fromEntries(Object.entries(nodes).map(([k,v])=>[k,v.innerHTML]));
 const initial=new URL(location.href).searchParams.get('ui');
 const isPreview=initial==='original'||!!initial&&Object.hasOwn(directions,initial);
@@ -23,7 +23,7 @@ function apply(direction:Direction|'original') {
     for(const [key,node] of Object.entries(nodes))node.innerHTML=original[key];
   }else{
     const d=directions[direction];document.body.dataset.ui=direction;
-    for(const key of ['eyebrow','title','intro','edition','fileTitle','previewTitle','closingTitle'] as const)nodes[key].innerHTML=d[key];
+    for(const key of ['eyebrow','title','intro','fileTitle','previewTitle','closingTitle'] as const)nodes[key].innerHTML=d[key];
     nodes.note.innerHTML=`<div class="theme-sheet"><span class="sheet-label">LAYOUT ILLUSTRATION / A5</span><h3>${d.sheetTitle}</h3><div class="sheet-tabs"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span></div>${d.sheetLines.map(line=>`<p>${line}</p>`).join('')}<span class="sheet-foot">YOUR EXISTING PDF · YOUR OWN ROUTINE</span></div><span class="theme-note">One insert per side. A4 or Letter paper.</span>`;
     if(direction==='pop')nodes.note.insertAdjacentHTML('afterbegin','<span class="pop-sticker" aria-hidden="true">PDF<br>↓<br>PAPER</span><svg class="pop-spark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0 59 30 85 15 70 41 100 50 70 59 85 85 59 70 50 100 41 70 15 85 30 59 0 50 30 41 15 15 41 30Z"/></svg>');
   }
