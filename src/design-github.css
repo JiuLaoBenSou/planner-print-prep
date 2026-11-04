@@ -15,6 +15,11 @@ body[data-ui=github] .site-header {
 }
 body[data-ui=github] .brand {font-size:18px;display:flex;gap:5px;flex-wrap:wrap;color:#1f2328}
 body[data-ui=github] .brand br {display:none}
+body[data-ui=github] .site-header .brand {align-items:center;flex-wrap:nowrap;white-space:nowrap}
+body[data-ui=github] .site-header .brand::before {
+  content:"";display:block;flex:0 0 28px;width:28px;height:28px;margin-right:3px;
+  background:url('/logo.svg') center/contain no-repeat;
+}
 body[data-ui=github] .site-header nav {gap:24px;font-size:13px}
 body[data-ui=github] .edition {font:11px/1.6 ui-monospace,Consolas,monospace;letter-spacing:0}
 body[data-ui=github] .hero {max-width:1328px;display:block;padding:24px 24px 20px}
