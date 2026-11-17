@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {mkdir,writeFile} from 'node:fs/promises';
-const versions=[['teaching','Print-ready. Class-ready.'],['study','Your plans. Your paper.'],['home','A little space for everyday life.'],['pop','BIG PLANS. RIGHT FIT.'],['github','Resize planner PDFs for printing.']] as const;
+const versions=[['teaching','Print-ready. Class-ready.'],['study','Your plans. Your paper.'],['home','A little space for everyday life.'],['pop','BIG PLANS. RIGHT FIT.'],['github','Resize planner PDFs to A5 & Half Letter.']] as const;
 for(const [ui,title] of versions)test(`${ui}: usable desktop/mobile design with real PDF export`,async({page})=>{
   await mkdir('output/ui-variants',{recursive:true});
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));

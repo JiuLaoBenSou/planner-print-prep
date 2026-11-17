@@ -2,7 +2,7 @@ import {test,expect} from '@playwright/test';
 const paths=['/','/about/','/contact/','/privacy/','/how-to-use/','/guides/a5-vs-half-letter/','/guides/print-planner-inserts/','/guides/duplex-alignment/'];
 test('selected E is the default workspace without a design preview bar',async({page})=>{
   await page.goto('/');await expect(page.locator('body')).toHaveAttribute('data-ui','github');
-  await expect(page.locator('h1')).toHaveText('Resize planner PDFs for printing.');
+  await expect(page.locator('h1')).toHaveText('Resize planner PDFs to A5 & Half Letter.');
   await expect(page.locator('.design-switcher')).toHaveCount(0);
   await expect(page.getByRole('navigation',{name:'Main',exact:true})).not.toContainText('Compare designs');
   await expect(page.locator('.trust-points')).toContainText('No account or watermark');
@@ -26,7 +26,7 @@ test('the adopted style and useful search content exist without JavaScript',asyn
     await page.goto('http://127.0.0.1:4176/');await expect(page.locator('.benefit-list')).toContainText('Keep usable text and vectors');
     await expect(page.locator('.faq details')).toHaveCount(6);
     await page.locator('.faq summary').filter({hasText:'white borders'}).click();await expect(page.locator('.faq details[open]')).toContainText('No. Printer margins');
-    await expect(page.getByRole('link',{name:'My double-sided pages do not line up',exact:true})).toHaveAttribute('href','/guides/duplex-alignment/');
+    await expect(page.getByRole('link',{name:'Double-sided planner pages not lining up?',exact:true})).toHaveAttribute('href','/guides/duplex-alignment/');
   }finally{await context.close();}
 });
 test('preview layouts stay separate from the default search page',async({page})=>{
